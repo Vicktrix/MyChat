@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>chat 2</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="css/Chat.css" rel="stylesheet" type="text/css"/>
+            <script defer src="js/Chat.js" type="application/javascript"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <label for="user">UserName :</label>
+                    <select name="user" id="user">
+                    <option value="user1">user1</option>
+                    <option value="user2">user2</option>
+                    <option value="user3">user3</option>
+                    <option value="user4">user4</option>
+                </select>
+                <label for="chat">Chat:</label>
+                    <select name="chat" id="chat">
+                    <option value="chat1">chat1</option>
+                    <option value="chat2">chat2</option>
+                    <option value="chat3">chat3</option>
+                    <option value="chat4">chat4</option>
+                </select>
+                <input type="text" id="findOrCreate" placeholder="find User or create chat" size="18">
+                <button id="find">Find</button>
+                <button id="create">Create</button>
+            </div>
+            <div id="viewchat">
+                <div id="posts">
+                        <div class="card">Posts 1:</div>
+                        <div class="card">Posts 2:</div>
+                        <div class="card">Posts 3:</div>
+                        <div class="card">Posts 4:</div>
+                        <div class="card">Posts 5:</div>
+                        <div class="card">Posts 6:</div>
+                        <div class="card">Posts 7:</div>
+                        <div class="card">Posts 8:</div>
+                        <div class="card">Posts 9:</div>
+                        <div class="card">Posts 10:</div>
+                        <div class="card">Posts 11:</div>
+                        <div class="card">Posts 12:</div>
+                        <div class="card">Posts 13:</div>
+                </div>
+                <div id="presents">
+                        <div class="card">Presents 1:</div>
+                        <div class="card">Presents 2:</div>
+                        <div class="card">Presents 3:</div>
+                        <div class="card">Presents 4:</div>
+                        <div class="card">Presents 5:</div>
+                        <div class="card">Presents 6:</div>
+                        <div class="card">Presents 7:</div>
+                        <div class="card">Presents 8:</div>
+                        <div class="card">Presents 9:</div>
+                        <div class="card">Presents 10:</div>
+                        <div class="card">Presents 11:</div>
+                        <div class="card">Presents 12:</div>
+                        <div class="card">Presents 13:</div>
+                        <div class="card">Presents 14:</div>
+                        <div class="card">Presents 15:</div>
+                </div>
+            </div>
+            <div id="sendarea">
+                <textarea autofocus id="mypost" rows="2" cols="10" placeholder="here my post"></textarea>
+                <button id="send">Send</button>
+            </div>
+        </div>
+    </body>
+</html>

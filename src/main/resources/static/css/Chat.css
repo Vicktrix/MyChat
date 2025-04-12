@@ -1,0 +1,109 @@
+:root {
+	--log-color: #66ccff;
+        --sendarea-height: 7vh;
+        --container-margin-height: 2vh;
+        --container-height: 95vh;
+        --view-height: 77vh;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#container{
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 70vw;
+	height: var(--container-height);
+	margin: var(--container-margin-height) auto;
+	background-color: var(--log-color);
+	font-size: 1.7rem;
+	border: 2px solid blue;
+	border-radius: 16px;
+	box-shadow: 10px 10px 15px rgb(0, 0, 0, 0.5);
+}
+#header {
+    margin: 10px 20px;
+}
+#header select {
+    background-color: rgba(256,256,256, 0.1)
+}
+#viewchat {
+	width: 100%;
+	height: var(--view-height);
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	margin-top: 2vh;
+}
+#posts {
+	overflow-y: scroll;
+}
+#presents {
+	border-left: 2px solid black;
+	overflow-y: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+#posts::-webkit-scrollbar { display: none;}
+#presents::-webkit-scrollbar {    display: none;}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#posts, #presents {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.card {
+	margin: 10px 10px;
+	padding: 10px 20px;
+	background-color: #bbffff;
+	border: 2px solid black;
+	border-radius: 8px;
+	box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.5);
+}
+#sendarea {
+	display: flex;
+	flex-direction: row;
+        justify-content: space-around;
+        margin: 15px;
+        height: var(--sendarea-height);
+}
+#mypost {
+	font-size: 1.8rem;
+	margin-right: 1rem;
+	flex-grow: 1;
+	resize: none;
+        border-radius: 5px;
+}
+select, #findOrCreate {
+	font-size: 1.6rem;
+	margin-right: 1rem;
+	flex-grow: 1;
+	resize: none;
+        border-radius: 5px;
+}
+#find, #create {
+    	font-size: 1.4rem;
+        padding: 0px 10px;
+        background-color: rgba(256,256,256, 0.1);
+        box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.5);
+}
+#send {
+    font-size: 1.4rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: -6px -6px 10px rgba(150, 255, 255, 1);
+    background-image: repeating-linear-gradient(180deg,rgba(0, 0, 255, 1),rgba(0, 0, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+}
+#send:hover {
+    animation: change_color 1s linear forwards;
+}
+#find:hover, #create:hover {
+    background-color: rgba(256,256,256, 0.6);
+    box-shadow: 5px 5px 10px rgb(0, 0, 250, 0.6);
+}
+@keyframes change_color {
+    100% {
+            box-shadow: 5px 5px 10px rgba(150, 255, 255, 1);
+            background-color: rgba(250, 250, 0, 1);
+    }
+}
