@@ -3,12 +3,13 @@ package com.MyChat.controller;
 import com.MyChat.service.MySavedChats;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Component
@@ -24,54 +25,31 @@ public class MyHandler {
     public Mono<ServerResponse> writeToChat(ServerRequest request) {
         var chatName = request.pathVariable("id");
         return request.bodyToMono(String.class)
-                .doOnNext(s -> System.out.println(" post : " + s))
-                .flatMap(message -> {
-//                    myChats.addEvent(message);
-                    myChats.addEventToChat(message, chatName);
-                    return ServerResponse.ok().build();
-                });
+            .doOnNext(consoleManager.apply(" post : ").apply(chatName))
+            .flatMap(message -> {
+                myChats.addEventToChat(message, chatName);
+                return ServerResponse.ok().build();
+            });
     }
 
     public Mono<ServerResponse> getChat(ServerRequest request) {
         var chatName = request.pathVariable("id");
         return ServerResponse.ok()
-                .contentType(MediaType.TEXT_EVENT_STREAM)
-//                .body(myChats.registerChat()
-                .body(myChats.registerChat(chatName)
-                        .delayElements(Duration.ofMillis(500))
-                        .doOnNext(s -> System.out.println("Emit : " + s))
-                        .map(message -> ServerSentEvent.<String>builder()
+            .contentType(MediaType.TEXT_EVENT_STREAM)
+            .body(myChats.registerChat(chatName)
+                    .delayElements(Duration.ofMillis(500))
+                    .doOnNext(consoleManager.apply(" get : ").apply(chatName))
+                    .map(message -> ServerSentEvent.<String>builder()
                         .id(String.valueOf(sequence.getAndIncrement()))
-//                        .event(request.pathVariable("id"))
-                        .event(chatName)
-                        .data("Sink : " + message)
-                        .build()),
-                        ServerSentEvent.class);
+                        .event(chatName).data(message).build()),
+                    ServerSentEvent.class);
     };
-    
-//   public Mono<ServerResponse> createNewChat(ServerRequest request) {
-//        var chatName = request.pathVariable("id");
-//        return ServerResponse.ok()
-//                .contentType(MediaType.TEXT_EVENT_STREAM)
-//                .body(myChats.createNewChat(chatName)
-//                        .delayElements(Duration.ofMillis(500))
-//                        .doOnNext(s -> System.out.println("Emit : " + s))
-//                        .map(message -> ServerSentEvent.<String>builder()
-//                        .id(String.valueOf(sequence.getAndIncrement()))
-////                        .event(request.pathVariable("id"))
-//                        .event(chatName)
-//                        .data("Sink : " + message)
-//                        .build()),
-//                        ServerSentEvent.class);
-//    }
-
-    private Flux<ServerSentEvent<String>> map(Flux<String> flux, String chatName) {
-        return flux.delayElements(Duration.ofMillis(500))
-                .doOnNext(s -> System.out.println("Emit : " + s))
-                .map(message -> ServerSentEvent.<String>builder()
-                .id(String.valueOf(sequence.getAndIncrement()))
-                .event(chatName)
-                .data("Sink : " + message)
-                .build());
-    }
+    private record UserAndHisMessage(String user, String message) {};
+    private Function<String, UserAndHisMessage> parseBody = m -> { 
+        int index = m.indexOf(" : ");
+        return index<1? new UserAndHisMessage("Noname", m) 
+                : new UserAndHisMessage(m.substring(0, index), m.substring(index));};
+    private Function<String,Function<String,Consumer<String>>> consoleManager = 
+            w -> s -> c -> { UserAndHisMessage body = parseBody.apply(c);
+        System.out.println("User "+body.user+w+body.message+" in chat "+s);};
 }

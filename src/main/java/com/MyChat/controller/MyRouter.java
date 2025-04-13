@@ -25,19 +25,8 @@ public class MyRouter {
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions.route()
-//                .POST("/chat/{id}", handler::writeToChat)
                 .POST("/chat/post/{id}", handler::writeToChat)
-//                .POST("/chat/new/{id}", handler::createNewChat)
                 .GET("/chat/{id}", handler::getChat)
-//                .GET("/chat", request -> ServerResponse.ok().contentType(MediaType.TEXT_HTML)
-//                        .body(new ClassPathResource("static/Chat.html"), 
-//                                org.springframework.core.io.Resource.class))
-//                .GET("/chat", request -> {
-//                    ClassPathResource resource = new ClassPathResource("static/Chat.html");
-//                    return ServerResponse.ok()
-//                            .contentType(MediaType.TEXT_HTML)
-//                            .body(DataBufferUtils.read(resource, DataBufferUtils.DEFAULT_BUFFER_SIZE), DataBuffer.class);
-//                })
                 .GET("/chat", request -> {
                     ClassPathResource resource = new ClassPathResource("static/Chat.html");
                     DataBufferFactory bufferFactory = new DefaultDataBufferFactory();
