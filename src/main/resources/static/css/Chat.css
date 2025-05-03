@@ -94,6 +94,9 @@ select, #findOrCreate {
     box-shadow: -6px -6px 10px rgba(150, 255, 255, 1);
     background-image: repeating-linear-gradient(180deg,rgba(0, 0, 255, 1),rgba(0, 0, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
 }
+#presents > h3 {
+    padding: 5px 10px;
+}
 #send:hover {
     animation: change_color 1s linear forwards;
 }

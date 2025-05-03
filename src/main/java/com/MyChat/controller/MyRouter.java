@@ -25,8 +25,9 @@ public class MyRouter {
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions.route()
-                .POST("/chat/post/{id}", handler::writeToChat)
-                .GET("/chat/{id}", handler::getChat)
+//                .POST("/chat/post/{id}", handler::writeToChat)
+//                .POST("/chat/post/{chat}/{user}", handler::writeToChat)
+//                .GET("/chat/{id}", handler::getChat)
                 .GET("/chat", request -> {
                     ClassPathResource resource = new ClassPathResource("static/Chat.html");
                     DataBufferFactory bufferFactory = new DefaultDataBufferFactory();
@@ -37,4 +38,16 @@ public class MyRouter {
                 })
                 .build();
     }
+    @Bean
+    public RouterFunction<ServerResponse> messageRouter() {
+        return RouterFunctions.route()
+//                .GET("/chat/{user}", handler::getChat)
+                .GET("/chat/init/{user}", handler::getChat)
+                .GET("/chat/users", handler::listUsers)
+//                .GET("/chat/{user}/{chat}", handler::initChat)
+                .GET("/chat/chats/{user}", handler::initChat)
+                .POST("/chat/{user}/{chat}", handler::writeToChat)
+                .build();
+    }
+    
 }
