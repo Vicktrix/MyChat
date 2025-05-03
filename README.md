@@ -48,21 +48,21 @@
 
 ## Examples 
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user1chat1_2.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user1chat1_2.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user1chat1_first.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user1chat1_first.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user1chat2_1.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user1chat2_1.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user2chat1.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user2chat1.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user2chat1_2.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user2chat1_2.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user2chat2_2.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user2chat2_2.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user3chat1.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user3chat1.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user3chat1_2.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user3chat1_2.png)
 
-https://github.com/Vicktrix/MyChat/blob/master/images/user3chat2_1.png
+![screenshot](https://github.com/Vicktrix/MyChat/blob/master/images/user3chat2_1.png)
 
