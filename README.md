@@ -1,7 +1,5 @@
 
-# Project Title
-
-My Chat SSE & Flux
+# My Chat SSE & Flux
 
 ## API Reference
 
@@ -46,7 +44,25 @@ My Chat SSE & Flux
 
 - [@Vicktrix](https://github.com/Vicktrix)
 
-
-
-
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+## Examples 
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user1chat1_2.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user1chat1_first.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user1chat2_1.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user2chat1.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user2chat1_2.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user2chat2_2.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user3chat1.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user3chat1_2.png
+
+https://github.com/Vicktrix/MyChat/blob/master/images/user3chat2_1.png
+
